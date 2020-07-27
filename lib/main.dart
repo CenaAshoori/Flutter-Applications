@@ -84,6 +84,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                child: UserAccountsDrawerHeader(
+                  accountName: Text("Cena Ashoori"),
+                  accountEmail: Text("Cena@gmail.com"),
+                ),
+
+              ),
+              Container(
+
+              )
+            ],
+          ),
+        ),
         body: ListView(children: <Widget>[
           Image.asset(
             "images/1.jpg",
