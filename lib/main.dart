@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_listview/TapBoxA.dart';
+
+import 'FavoritWidget.dart';
+import 'MyCardWidget.dart';
 //import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
@@ -81,85 +85,56 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter layout demo',
       home: Scaffold(
+        backgroundColor: Colors.grey,
         appBar: AppBar(
+          backgroundColor: Colors.red,
           title: const Text('Flutter layout demo'),
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              DrawerHeader(
-                child: UserAccountsDrawerHeader(
-                  accountName: Text("Cena Ashoori"),
-                  accountEmail: Text("Cena@gmail.com"),
-                ),
-
-              ),
-              Container(
-
-              )
-            ],
+        drawer: MyDrawer(),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: MyCardWidget(),
           ),
         ),
-        body: ListView(children: <Widget>[
-          Image.asset(
-            "images/1.jpg",
-            width: 600,
-            height: 400,
-            fit: BoxFit.cover,
-          ),
-          Column(
-            children: <Widget>[
-              titleSection,
-              titleSection,
-              buttonSection,
-              textSection,
-              TapBoxA(),
-            ],
-          ),
-        ]),
-      ),
-    );
-  }
-}
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.send),
 
-class FavoritWidget extends StatefulWidget {
-  FavoritWidget({Key key}) : super(key: key);
-
-  @override
-  _FavoritWidgetState createState() => _FavoritWidgetState();
-}
-
-class _FavoritWidgetState extends State<FavoritWidget> {
-  bool _isFavorit = true;
-  int _likeCount = 41;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: <Widget>[
-          IconButton(
-            color: Colors.red[400],
-            icon: (_isFavorit ? Icon(Icons.star) : Icon(Icons.star_border)),
-            onPressed: _toggleFavorite,
-          ),
-          SizedBox(
-              width: 22,
-              child: Container(
-                child: Text(_likeCount.toString()),
-              ))
-        ],
+        ),
       ),
     );
   }
 
-  void _toggleFavorite() {
-    setState(() {
-      if (_isFavorit)
-        _likeCount--;
-      else
-        _likeCount++;
-      _isFavorit = !(_isFavorit);
-    });
-  }
+  MyDrawer() => Drawer(
+        elevation: 123,
+        semanticLabel: "123",
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              otherAccountsPictures: <Widget>[
+                Container(
+                  child: IconButton(
+                    icon: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          "https://i.pinimg.com/originals/b8/4b/4d/b84b4d51b74c3c2f652b956f6b936dd5.jpg"),
+                    ),
+                    onPressed: () {
+                      print("Icon Clicked");
+                    },
+                  ),
+                ),
+                CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://i.pinimg.com/564x/2e/1f/b9/2e1fb93a69a72d50da1de9978be5b0c3.jpg")),
+              ],
+              accountName: Text("Cena Ashoori"),
+              accountEmail: Text("Cena@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://i.pinimg.com/originals/b8/4b/4d/b84b4d51b74c3c2f652b956f6b936dd5.jpg"),
+              ),
+            )
+          ],
+        ),
+      );
 }
