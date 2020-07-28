@@ -8,7 +8,14 @@ import 'MyCardWidget.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var _myCardWidget = MyCardWidget(false);
+
   Widget titleSection = Container(
       color: Colors.grey[200],
       padding: const EdgeInsets.all(32),
@@ -56,7 +63,6 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // final WordPair = WordPair.random();
   @override
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
@@ -94,7 +100,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
-            child: MyCardWidget(),
+            child: _myCardWidget,
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -137,4 +143,5 @@ class MyApp extends StatelessWidget {
           ],
         ),
       );
+
 }
