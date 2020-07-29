@@ -1,29 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MyCardWidget extends StatefulWidget {
-  var flg ;
-  MyCardWidget(this.flg);
-  @override
-  _MyCardWidgetState createState() {
-    print("yeah that's working");
-    return _MyCardWidgetState();
-  }
-}
+class MyCardWidget extends StatelessWidget {
 
-class _MyCardWidgetState extends State<MyCardWidget> {
-  var _trackName = "";
-  TextEditingController controller = TextEditingController();
+  MyCardWidget(
+    this._trackName,
+    this._controller,
+  ) ;
 
-  @override
-  void initState() {
-    // TODO: implement initState
+  final String _trackName;
+  final TextEditingController _controller;
 
-    super.initState();
-//    print(controller.text);
-    print("Init State");
-    print(controller.text);
-    _trackName =  "Star";
-  }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -46,7 +32,7 @@ class _MyCardWidgetState extends State<MyCardWidget> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
-                controller: controller,
+                controller: _controller,
                 decoration: InputDecoration(
                   hintText: "Enter Track Name",
                   labelText: "Track Name",
