@@ -9,13 +9,11 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-
       elevation: 123,
       semanticLabel: "123",
       child: Container(
         color: Colors.black,
         child: ListView(
-
           children: <Widget>[
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.black87),
