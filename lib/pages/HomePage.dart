@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.black87,
           title: const Text('Flutter layout demo'),
         ),
         drawer: MyDrawer(),
@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             name_track = textFieldControler.text;
+            textFieldControler.text = "";
             setState(() {
               print(name_track);
             });

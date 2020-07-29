@@ -9,7 +9,7 @@ class MyCardWidget extends StatelessWidget {
 
   final String _trackName;
   final TextEditingController _controller;
-
+  var textStyle = TextStyle(fontSize: 24 , fontFamily: "Arial");
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -25,7 +25,7 @@ class MyCardWidget extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text(_trackName),
+            Text(_trackName , style: textStyle,),
             SizedBox(
               height: 20,
             ),
