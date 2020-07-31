@@ -29,6 +29,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   http: 0.12.2
+  email_validator: ^1.0.5
+  shared_preferences: ^0.5.8
 
 dev_dependencies:
   flutter_test:
@@ -37,7 +39,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter.
+# The following secsdktion is specific to Flutter.
 flutter:
 
   # The following line ensures that the Material Icons font is

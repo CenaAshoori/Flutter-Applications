@@ -24,12 +24,17 @@ class _HomePageState extends State<HomePage> {
   var name_track = "Star Boy";
   TextEditingController textFieldControler = TextEditingController();
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter layout demo',
-      home: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            )
+          ],
           backgroundColor: Colors.black87,
           title: const Text('Flutter layout demo'),
         ),
@@ -40,6 +45,10 @@ class _HomePageState extends State<HomePage> {
 //            child: MyCardWidget(name_track, textFieldControler),
             child: data != null ? ListView.builder(
               itemBuilder: (context , index){
+                if (index % 20 == 0 || index == 0){
+                  return MyCardWidget(name_track , textFieldControler);
+                }
+                else
                 return ListTile(
                   title: Text(data[index]["title"]),
                   subtitle: Text("id:${data[index]["id"]}"),
@@ -53,23 +62,25 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-//          onPressed: () {
-//            name_track = textFieldControler.text;
-//            textFieldControler.text = "";
-//            setState(() {
-//              print(name_track);
-//            });
-//          },
+          onPressed: () {
+            name_track = textFieldControler.text;
+            textFieldControler.text = "";
+            setState(() {
+              print(name_track);
+            });
+          },
           child: Icon(Icons.send),
 
         ),
-      ),
     );
   }
 
-  void getUrl() async{
+  getUrl() async{
     var res = await get(url);
     data = jsonDecode(res.body);
+    setState(() {
+
+    });
     print(data);
 
   }
