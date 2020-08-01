@@ -2,11 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app_listview/MyCardWidget.dart';
+import 'package:flutter_app_listview/constants/Constants.dart';
 import 'package:http/http.dart';
 
 import 'MyDrawer.dart';
 
 class HomePage extends StatefulWidget {
+//  static const routName = "/home";
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -31,7 +33,8 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(Icons.exit_to_app),
               onPressed: (){
-                Navigator.pop(context);
+                Constants.prefs.setBool("logedIn", false);
+                Navigator.pushReplacementNamed(context , '/login');
               },
             )
           ],
@@ -63,8 +66,11 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+
+            Constants.prefs.setBool("logedIn", false);
             name_track = textFieldControler.text;
             textFieldControler.text = "";
+//            callback();
             setState(() {
               print(name_track);
             });

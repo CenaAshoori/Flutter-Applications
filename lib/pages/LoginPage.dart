@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_app_listview/constants/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -36,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                         return "Enter ur Username";
                       else {
                         if (EmailValidator.validate(value))
+
                           return null;
                         else
                           return "Wrong Email";
@@ -66,7 +68,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text("Submit"),
                     onPressed: () {
                       if (_username_key.currentState.validate()) {
-                        Navigator.pushNamed(context, '/');
+                        Constants.prefs.setBool("logedIn", true);
+                        Constants.userInfo.setStringList('userInfo', [_username_Controler.text , _password_Controler.text]);
+                        Navigator.pushReplacementNamed(context, '/');
+
                       }
                     },
                   )

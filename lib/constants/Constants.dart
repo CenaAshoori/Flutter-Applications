@@ -1,0 +1,8 @@
+import 'package:shared_preferences/shared_preferences.dart';
+class Constants{
+  static SharedPreferences prefs;
+//username password
+  static SharedPreferences userInfo;
+
+
+}
