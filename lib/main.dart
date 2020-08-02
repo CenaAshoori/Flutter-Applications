@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_listview/TapBoxA.dart';
+import 'file:///E:/+Flutter%20Project/First%20Application/flutter_app_listview/lib/widgets/TapBoxA.dart';
 import 'package:flutter_app_listview/constants/Constants.dart';
 import 'package:flutter_app_listview/pages/LoginPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'FavoritWidget.dart';
-import 'MyCardWidget.dart';
+import 'widgets/FavoritWidget.dart';
+import 'widgets/MyCardWidget.dart';
 import 'pages/HomePage.dart';
 //import 'package:english_words/english_words.dart';
 
